@@ -14,27 +14,7 @@ from keras.models import model_from_json
 
 
 
-def line_chart(data):
-    chart_data_alt = alt.Chart(chart_data).transform_fold(
-        ["2017", "2018", "2019", "2020", "2021"],
-        as_=['Año', 'Dias']
-        ).mark_line().encode(
-            x='Mes:T',
-            y='Dias:Q',
-            color='Año:N'
-        )
-    return(st.altair_chart(chart_data_alt, use_container_width=True))
 
-def line_chart2(data):
-    chart_data_alt2 = alt.Chart(chart_data2).transform_fold(
-        ["2017", "2018", "2019", "2020", "2021"],
-        as_=['Año', 'Orden de Trabajo']
-        ).mark_line().encode(
-            x='Mes:T',
-            y='Orden de Trabajo:Q',
-            color='Año:N'
-        )
-    return(st.altair_chart(chart_data_alt2, use_container_width=True))
 
 
 
@@ -132,6 +112,29 @@ if uploaded_file is not None:
     col1.metric("% de pedidos entregados a tiempo", str(round((entregas_a_tiempo/pedidos)*100)) + '%', str(round(indicador_mes_anterior)) + '%', delta_color="off")
 
 #Chart
+
+    def line_chart(data):
+    chart_data_alt = alt.Chart(chart_data).transform_fold(
+        ["2017", "2018", "2019", "2020", "2021"],
+        as_=['Año', 'Dias']
+        ).mark_line().encode(
+            x='Mes:T',
+            y='Dias:Q',
+            color='Año:N'
+        )
+    return(st.altair_chart(chart_data_alt, use_container_width=True))
+
+    def line_chart2(data):
+    chart_data_alt2 = alt.Chart(chart_data2).transform_fold(
+        ["2017", "2018", "2019", "2020", "2021"],
+        as_=['Año', 'Orden de Trabajo']
+        ).mark_line().encode(
+            x='Mes:T',
+            y='Orden de Trabajo:Q',
+            color='Año:N'
+        )
+    return(st.altair_chart(chart_data_alt2, use_container_width=True))
+
     st.title("Gráficos")
     st.subheader("Cantidad de pedidos")
     chart_data2 = df.pivot_table(index='Mes', columns="Año",values='Orden de Trabajo', aggfunc="count").reset_index()
