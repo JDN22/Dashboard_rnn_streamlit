@@ -114,7 +114,7 @@ if uploaded_file is not None:
 #Chart
 
     def line_chart(data):
-    chart_data_alt = alt.Chart(chart_data).transform_fold(
+        chart_data_alt = alt.Chart(chart_data).transform_fold(
         ["2017", "2018", "2019", "2020", "2021"],
         as_=['Año', 'Dias']
         ).mark_line().encode(
@@ -122,10 +122,10 @@ if uploaded_file is not None:
             y='Dias:Q',
             color='Año:N'
         )
-    return(st.altair_chart(chart_data_alt, use_container_width=True))
+        return(st.altair_chart(chart_data_alt, use_container_width=True))
 
     def line_chart2(data):
-    chart_data_alt2 = alt.Chart(chart_data2).transform_fold(
+        chart_data_alt2 = alt.Chart(chart_data2).transform_fold(
         ["2017", "2018", "2019", "2020", "2021"],
         as_=['Año', 'Orden de Trabajo']
         ).mark_line().encode(
@@ -133,7 +133,7 @@ if uploaded_file is not None:
             y='Orden de Trabajo:Q',
             color='Año:N'
         )
-    return(st.altair_chart(chart_data_alt2, use_container_width=True))
+        return(st.altair_chart(chart_data_alt2, use_container_width=True))
 
     st.title("Gráficos")
     st.subheader("Cantidad de pedidos")
