@@ -1,5 +1,4 @@
 from json import load
-from pandas.io import excel
 import streamlit as st
 import datetime
 import pandas as pd
