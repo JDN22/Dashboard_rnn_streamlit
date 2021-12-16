@@ -78,7 +78,7 @@ if uploaded_file is not None:
     df['Año'] = df['Fecha Creacion'].dt.strftime('%Y')
     df['Mes'] = df['Fecha Creacion'].dt.strftime('%m')
 
-    d = st.sidebar.date_input("Seleccione una fecha", df["Fecha Creacion"].min())
+    d = st.sidebar.date_input("Seleccione una fecha", '2019/08/31')
     
     año = d.strftime("%Y")
     mes = d.strftime("%m")
