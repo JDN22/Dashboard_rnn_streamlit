@@ -5,7 +5,12 @@ import datetime
 import pandas as pd
 import numpy as np
 import altair as alt
+import matplotlib.pyplot as plt
+from keras.models import load_model
+from sklearn.preprocessing import MinMaxScaler, StandardScaler
+from sklearn.model_selection import train_test_split
 from keras.models import model_from_json
+
 
 
 
